@@ -1,0 +1,18 @@
+/*
+const DATABASE: IngredientRecord[] = await loadDatabase();
+/Load data from API (synchronous for startup)
+async function loadDatabase(): Promise<IngredientRecord[]> {
+  try {
+    const response = await fetch('https://api.example.com/protein-data'); // Replace with your API endpoint
+    if (!response.ok) {
+      throw new Error(`API request failed: ${response.status}`);
+    }
+    const data = await response.json();
+    return data as IngredientRecord[];
+  } catch (error) {
+    console.error('Failed to load data from API:', error);
+    // Fallback to local file if API fails
+    const fs = await import('fs');
+    return JSON.parse(fs.readFileSync("./data/output.json", "utf-8"));
+  }
+}*/
