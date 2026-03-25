@@ -1,9 +1,9 @@
 import { IngredientRecord } from "../types/Interface.js";
 const DATABASE: IngredientRecord[] = await loadDatabase();
 //Load data from API (synchronous for startup)
-async function loadDatabase(): Promise<IngredientRecord[]> {
+export async function loadDatabase(): Promise<IngredientRecord[]> {
   try {
-    const response = await fetch('https://api.example.com/protein-data'); // Replace with your API endpoint
+    const response = await fetch('http://localhost:3000/foods'); // Replace with your API endpoint
     if (!response.ok) {
       throw new Error(`API request failed: ${response.status}`);
     }

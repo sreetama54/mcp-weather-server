@@ -2,10 +2,17 @@ import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
 import { z } from "zod";
 import { IngredientRecord} from "./types/Interface.js";
-import fs from "fs";
+//import load from "fs";
+import { loadDatabase } from "./utils/temp_api_loader.js";
 
-const DATABASE: IngredientRecord[] = JSON.parse(fs.readFileSync("./data/output.json", "utf-8"));
-
+//const DATABASE: IngredientRecord[] = JSON.parse(fs.readFileSync("./data/output.json", "utf-8"));
+const DATABASE: IngredientRecord[] = await loadDatabase();
+loadDatabase().then((data) => {
+  console.log("✅ Database loaded with", data.length, "records");
+}).catch((error) => {
+  console.error("❌ Failed to load database:", error);
+  process.exit(1);
+});
 // ─── Helpers ─────────────────────────────────────────────────────────────────
 
 /** Fuzzy-match: normalise to lowercase, replace spaces/hyphens with underscores */
