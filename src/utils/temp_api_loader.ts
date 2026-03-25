@@ -1,6 +1,6 @@
-/*
+import { IngredientRecord } from "../types/Interface.js";
 const DATABASE: IngredientRecord[] = await loadDatabase();
-/Load data from API (synchronous for startup)
+//Load data from API (synchronous for startup)
 async function loadDatabase(): Promise<IngredientRecord[]> {
   try {
     const response = await fetch('https://api.example.com/protein-data'); // Replace with your API endpoint
@@ -15,4 +15,4 @@ async function loadDatabase(): Promise<IngredientRecord[]> {
     const fs = await import('fs');
     return JSON.parse(fs.readFileSync("./data/output.json", "utf-8"));
   }
-}*/
+}

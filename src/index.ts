@@ -1,7 +1,7 @@
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
 import { z } from "zod";
-import { IngredientRecord} from "./Interface.js";
+import { IngredientRecord} from "./types/Interface.js";
 import fs from "fs";
 
 const DATABASE: IngredientRecord[] = JSON.parse(fs.readFileSync("./data/output.json", "utf-8"));
